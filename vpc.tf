@@ -52,7 +52,7 @@ resource "aws_subnet" "dom-sub-2-private" {
 resource "aws_route_table" "dom-public-route" {
   vpc_id = aws_vpc.DOM-VPC.id
   tags   = {
-    Name = "Public-route-table"
+    Name = "dom-public-route"
   }
 }
 
@@ -60,7 +60,7 @@ resource "aws_route_table" "dom-public-route" {
 resource "aws_route_table" "dom-private-route" {
   vpc_id = aws_vpc.DOM-VPC.id
   tags   = {
-    Name = "Private-route-table"
+    Name = "dom-private-route"
   }
 }
 
