@@ -1,6 +1,6 @@
 # Dominic VPC for his birthday
 resource "aws_vpc" "DOM-VPC" {
-  cidr_block       = "10.0.0.0/16"
+  cidr_block       = var.vpc_cidr
   instance_tenancy = "default"
 
   tags = {
@@ -11,7 +11,7 @@ resource "aws_vpc" "DOM-VPC" {
 # Public subnets 
 resource "aws_subnet" "dom-sub-1-public" {
   vpc_id     = aws_vpc.DOM-VPC.id
-  cidr_block = "10.0.1.0/24"
+  cidr_block = var.public_subnet_1_cidr
 
   tags = {
     Name = "dom-sub-1-public"
@@ -21,7 +21,7 @@ resource "aws_subnet" "dom-sub-1-public" {
 # Public subnets 
 resource "aws_subnet" "dom-sub-2-public" {
   vpc_id     = aws_vpc.DOM-VPC.id
-  cidr_block = "10.0.2.0/24"
+  cidr_block = var.public_subnet_2_cidr
 
   tags = {
     Name = "dom-sub-2-public"
@@ -31,7 +31,7 @@ resource "aws_subnet" "dom-sub-2-public" {
 # Private subnets 
 resource "aws_subnet" "dom-sub-1-private" {
   vpc_id     = aws_vpc.DOM-VPC.id
-  cidr_block = "10.0.3.0/24"
+  cidr_block = var.private_subnet_1_cidr
 
   tags = {
     Name = "dom-sub-1-private"
@@ -41,7 +41,7 @@ resource "aws_subnet" "dom-sub-1-private" {
 # Private subnets 
 resource "aws_subnet" "dom-sub-2-private" {
   vpc_id     = aws_vpc.DOM-VPC.id
-  cidr_block = "10.0.4.0/24"
+  cidr_block = var.private_subnet_2_cidr
 
   tags = {
     Name = "dom-sub-2-private"
